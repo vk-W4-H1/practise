@@ -1,18 +1,159 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>Device Info</title></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Device Info with Selenium Code</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 20px;
+      background: #fafafa;
+      color: #222;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+    pre {
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .tabs {
+      margin-top: 20px;
+    }
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .tab-buttons button {
+      background: #e0e0e0;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .tab-buttons button.active {
+      background: #4285f4;
+      color: white;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
 <body>
-<pre id="info"></pre>
-<script>
-const data = {
-  userAgent: navigator.userAgent,
-  screenWidth: window.screen.width,
-  screenHeight: window.screen.height,
-  innerWidth: window.innerWidth,
-  innerHeight: window.innerHeight,
-  devicePixelRatio: window.devicePixelRatio
-};
-document.getElementById("info").textContent = JSON.stringify(data, null, 2);
-</script>
+  <h1>📱 Device Information</h1>
+  <pre id="info">Collecting device info...</pre>
+
+  <div class="tabs">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="python">🐍 Python</button>
+      <button class="tab-btn" data-tab="java">☕ Java</button>
+    </div>
+
+    <div id="python" class="tab-content active">
+      <pre id="python-code"></pre>
+    </div>
+
+    <div id="java" class="tab-content">
+      <pre id="java-code"></pre>
+    </div>
+  </div>
+
+  <script>
+    // --- Collect device info ---
+    const data = {
+      userAgent: navigator.userAgent,
+      screenWidth: window.screen.width,
+      screenHeight: window.screen.height,
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+      devicePixelRatio: window.devicePixelRatio
+    };
+
+    // Display JSON info
+    document.getElementById("info").textContent = JSON.stringify(data, null, 2);
+
+    // --- Generate Python code ---
+    const pythonCode = `
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+user_agent = "${data.userAgent}"
+width = ${data.screenWidth}
+height = ${data.screenHeight}
+pixel_ratio = ${data.devicePixelRatio}
+
+mobile_emulation = {
+    "deviceMetrics": {"width": width, "height": height, "pixelRatio": pixel_ratio},
+    "userAgent": user_agent
+}
+
+options = Options()
+options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+driver = webdriver.Chrome(options=options)
+driver.get("https://example.com")
+
+print(driver.execute_script("return navigator.userAgent"))
+driver.quit()
+    `.trim();
+
+    // --- Generate Java code ---
+    const javaCode = `
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.HashMap;
+import java.util.Map;
+
+public class MobileEmulation {
+    public static void main(String[] args) {
+        Map<String, Object> deviceMetrics = new HashMap<>();
+        deviceMetrics.put("width", ${data.screenWidth});
+        deviceMetrics.put("height", ${data.screenHeight});
+        deviceMetrics.put("pixelRatio", ${data.devicePixelRatio});
+
+        Map<String, Object> mobileEmulation = new HashMap<>();
+        mobileEmulation.put("deviceMetrics", deviceMetrics);
+        mobileEmulation.put("userAgent", "${data.userAgent}");
+
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("mobileEmulation", mobileEmulation);
+
+        ChromeDriver driver = new ChromeDriver(options);
+        driver.get("https://example.com");
+        System.out.println(driver.executeScript("return navigator.userAgent"));
+        driver.quit();
+    }
+}
+    `.trim();
+
+    // Inject into HTML
+    document.getElementById("python-code").textContent = pythonCode;
+    document.getElementById("java-code").textContent = javaCode;
+
+    // --- Tabs handling ---
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
