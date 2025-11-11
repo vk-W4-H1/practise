@@ -22,6 +22,7 @@
       overflow-x: auto;
       font-size: 16px;
       line-height: 1.4;
+      position: relative;
     }
     .tabs {
       margin-top: 20px;
@@ -49,6 +50,27 @@
     .tab-content.active {
       display: block;
     }
+
+    /* Always-visible copy button inside code block */
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #e8f0fe;
+      color: #1a73e8;
+      border: 1px solid #d2e3fc;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .copy-btn:hover {
+      background: #1a73e8;
+      color: white;
+      border-color: #1a73e8;
+    }
   </style>
 </head>
 <body>
@@ -62,11 +84,11 @@
     </div>
 
     <div id="python" class="tab-content active">
-      <pre id="python-code"></pre>
+      <pre id="python-code"><button class="copy-btn" data-copy="python-code">Copy</button></pre>
     </div>
 
     <div id="java" class="tab-content">
-      <pre id="java-code"></pre>
+      <pre id="java-code"><button class="copy-btn" data-copy="java-code">Copy</button></pre>
     </div>
   </div>
 
@@ -138,9 +160,9 @@ public class MobileEmulation {
 }
     `.trim();
 
-    // Inject into HTML
-    document.getElementById("python-code").textContent = pythonCode;
-    document.getElementById("java-code").textContent = javaCode;
+    // Inject code text into pre blocks
+    document.getElementById("python-code").insertAdjacentText("beforeend", pythonCode);
+    document.getElementById("java-code").insertAdjacentText("beforeend", javaCode);
 
     // --- Tabs handling ---
     const buttons = document.querySelectorAll(".tab-btn");
@@ -152,6 +174,30 @@ public class MobileEmulation {
         contents.forEach(c => c.classList.remove("active"));
         btn.classList.add("active");
         document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+
+    // --- Copy to clipboard ---
+    document.querySelectorAll(".copy-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const targetId = btn.dataset.copy;
+        const codeText = document.getElementById(targetId).innerText.replace("Copy", "").trim();
+        try {
+          await navigator.clipboard.writeText(codeText);
+          const originalText = btn.textContent;
+          btn.textContent = "Copied!";
+          btn.style.background = "#34a853";
+          btn.style.color = "white";
+          btn.style.borderColor = "#34a853";
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = "#e8f0fe";
+            btn.style.color = "#1a73e8";
+            btn.style.borderColor = "#d2e3fc";
+          }, 1500);
+        } catch (err) {
+          alert("Failed to copy!");
+        }
       });
     });
   </script>
