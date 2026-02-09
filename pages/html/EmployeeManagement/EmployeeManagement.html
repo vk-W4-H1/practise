@@ -170,14 +170,7 @@
     </div>
 
     <script>
-    (function () {
-
-    if (window.__employeeManagementLoaded) {
-        setTimeout(() => searchEmployee(), 0);
-        return;
-    }
-    window.__employeeManagementLoaded = true;
-    
+   
         let employees = [
             {
                 firstName: "John",
@@ -394,7 +387,7 @@
 
         // Initial population
         searchEmployee();
-        })();
+     
     </script>
 </body>
 </html>
