@@ -1,5 +1,5 @@
 {  
-  "Practise": { "WebUI": "html/EmployeeManagement.html" },
+  "Practise": { "WebUI": "html/EmployeeManagement/EmployeeLogin.html" },
   "DeviceInfo": { "DeviceInfo": "html/DeviceInfo.html" }
 
 }
