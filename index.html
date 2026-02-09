@@ -1,36 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #333;
-            text-align: center;
-            padding-top: 15%;
-        }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #0078d7;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-        a:hover {
-            background: #005fa3;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>codetestdeploy</title>
+
+<style>
+:root {
+    --bg:#0f172a;
+    --panel:#020617;
+    --text:#e5e7eb;
+    --accent:#38bdf8;
+}
+
+body{
+    margin:0;
+    font-family:system-ui;
+    background:var(--bg);
+    color:var(--text);
+    height:100vh;
+    display:flex;
+    flex-direction:column
+}
+
+header{
+    background:var(--panel);
+    padding:14px 18px;
+    font-size:20px
+}
+
+.container{
+    flex:1;
+    display:flex;
+    overflow:hidden
+}
+
+.sidebar{
+    width:260px;
+    background:#020617;
+    overflow-y:auto
+}
+
+.tree-item{
+    padding:10px;
+    cursor:pointer;
+    border-radius:6px
+}
+
+.tree-item:hover{
+    background:#1e293b
+}
+
+.tree-item.active{
+    background:var(--accent);
+    color:#000
+}
+
+.tree-children{
+    margin-left:16px;
+    display:none
+}
+
+.tree-children.open{
+    display:block
+}
+
+.content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    background:#000
+}
+
+.breadcrumb{
+    font-size:14px;
+    color:#94a3b8;
+    padding:12px 20px;
+    border-bottom:1px solid #1e293b
+}
+
+#contentFrame{
+    flex:1;
+    width:100%;
+    border:none;
+    background:#000
+}
+</style>
 </head>
+
 <body>
-    <h1>Automation Practise Pages</h1>
-    <p>Click below to go to the main page:</p>
-    <a href="EmployeeManagement.html">Go to Employee Management</a>
-    <a href="DeviceInfo.html">Show my device info</a>
+<header>codetestdeploy</header>
+
+<div class="container">
+    <nav class="sidebar" id="sidebar"></nav>
+
+    <main class="content">
+        <div class="breadcrumb" id="breadcrumb">Home</div>
+        <iframe id="contentFrame"></iframe>
+    </main>
+</div>
+
+<script>
+fetch('pages/manifest.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(d => {
+        buildTree(d, document.getElementById('sidebar'));
+        loadHiddenHome();
+    });
+
+function buildTree(obj, container, path = []) {
+    const ul = document.createElement('ul');
+
+    Object.entries(obj).forEach(([k, v]) => {
+        const li = document.createElement('li');
+
+        if (typeof v === 'string') {
+            const d = document.createElement('div');
+            d.className = 'tree-item';
+            d.textContent = '📄 ' + k;
+            d.onclick = () => loadPage(d, 'pages/' + v, [...path, k]);
+            li.appendChild(d);
+        } else {
+            const d = document.createElement('div');
+            d.className = 'tree-item';
+            d.textContent = '📁 ' + k;
+            li.appendChild(d);
+
+            const c = buildTree(v, li, [...path, k]);
+            c.classList.add('tree-children');
+
+            d.onclick = () => c.classList.toggle('open');
+            li.appendChild(c);
+        }
+
+        ul.appendChild(li);
+    });
+
+    container.appendChild(ul);
+    return ul;
+}
+
+function loadPage(el, page, crumbs) {
+    document.querySelectorAll('.tree-item')
+        .forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+
+    document.getElementById('breadcrumb').textContent = crumbs.join(' / ');
+    document.getElementById('contentFrame').src = page;
+}
+
+function loadHiddenHome() {
+    document.getElementById('breadcrumb').textContent = 'Home';
+    document.getElementById('contentFrame').src = 'pages/home.html';
+}
+</script>
 </body>
 </html>
+
