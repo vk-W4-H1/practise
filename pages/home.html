@@ -1,8 +1,35 @@
-<html><head></head><body>
 
-<h2>Update on tool releases - 09 Feb 2026</h2>
+<h2 id="pageTitle"></h2>
 
-<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; margin-top:10px;">
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const today = new Date();
+
+  const formattedDate = today.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  });
+
+  document.getElementById("pageTitle").textContent =
+    `Update on tool releases - ${formattedDate}`;
+});
+</script>
+<input
+  type="text"
+  id="searchInput"
+  placeholder="Search repository..."
+  style="margin-bottom:10px; padding:6px; width:250px;"
+/>
+
+<select id="releaseFilter" style="margin-left:10px; padding:6px;">
+  <option value="all">All</option>
+  <option value="yes">Released in last 7 days</option>
+  <option value="no">Not released in last 7 days</option>
+</select>
+
+<table border="1" cellpadding="8" cellspacing="0"
+       style="border-collapse: collapse; width: 100%; margin-top:10px;">
   <thead>
     <tr style="background:#f5f5f5; cursor:pointer;">
       <th onclick="sortTable(0)">#</th>
@@ -11,63 +38,110 @@
       <th onclick="sortTable(3)">Last Release Date 🔽</th>
     </tr>
   </thead>
-  <tbody id="releases-table"><tr style="">
-    <td>1</td>
-    <td>
-      <a href="https://github.com/robotframework/robotframework" target="_blank">
-        robotframework/robotframework
-      </a>
-    </td>
-    <td>No</td>
-    <td>2025-12-23</td>
-  </tr><tr style="">
-    <td>2</td>
-    <td>
-      <a href="https://github.com/robotframework/SeleniumLibrary" target="_blank">
-        robotframework/SeleniumLibrary
-      </a>
-    </td>
-    <td>No</td>
-    <td>2025-10-04</td>
-  </tr><tr style="">
-    <td>3</td>
-    <td>
-      <a href="https://github.com/python/cpython" target="_blank">
-        python/cpython
-      </a>
-    </td>
-    <td>No</td>
-    <td>No releases</td>
-  </tr><tr>
-    <td>4</td>
-    <td>
-      <a href="https://github.com/microsoft/playwright" target="_blank">
-        microsoft/playwright
-      </a>
-    </td>
-    <td>Yes</td>
-    <td>2026-02-06</td>
-  </tr><tr style="">
-    <td>5</td>
-    <td>
-      <a href="https://github.com/SeleniumHQ/selenium" target="_blank">
-        SeleniumHQ/selenium
-      </a>
-    </td>
-    <td>Yes</td>
-    <td>2026-02-09</td>
-  </tr><tr style="">
-    <td>6</td>
-    <td>
-      <a href="https://github.com/openjdk/jdk" target="_blank">
-        openjdk/jdk
-      </a>
-    </td>
-    <td>No</td>
-    <td>No releases</td>
-  </tr></tbody>
+  <tbody id="releases-table"></tbody>
 </table>
 
+<script>
+let sortDirection = {};
 
+function showLatestRelease(repo, days, index) {
+  const tableBody = document.getElementById("releases-table");
+  const row = document.createElement("tr");
 
-</body></html>
+  row.innerHTML = `
+    <td>${index}</td>
+    <td>
+      <a href="https://github.com/${repo}" target="_blank">
+        ${repo}
+      </a>
+    </td>
+    <td>Loading…</td>
+    <td>Loading…</td>
+  `;
+
+  tableBody.appendChild(row);
+
+  fetch(`https://api.github.com/repos/${repo}/releases`)
+    .then(res => res.json())
+    .then(releases => {
+      if (!Array.isArray(releases) || releases.length === 0) {
+        row.cells[2].textContent = "No";
+        row.cells[3].textContent = "No releases";
+        return;
+      }
+
+      const latest = releases.find(r => !r.draft && r.published_at);
+      if (!latest) {
+        row.cells[2].textContent = "No";
+        row.cells[3].textContent = "No published releases";
+        return;
+      }
+
+      const releaseDate = new Date(latest.published_at);
+      const now = new Date();
+      const diffInDays = Math.floor(
+        (now - releaseDate) / (1000 * 60 * 60 * 24)
+      );
+
+      row.cells[2].textContent = diffInDays <= days ? "Yes" : "No";
+      row.cells[3].textContent = releaseDate.toISOString().split("T")[0];
+    })
+    .catch(() => {
+      row.cells[2].textContent = "Error";
+      row.cells[3].textContent = "Error";
+    });
+}
+
+/* ---------- Sorting ---------- */
+function sortTable(colIndex) {
+  const tbody = document.getElementById("releases-table");
+  const rows = Array.from(tbody.rows);
+  const asc = sortDirection[colIndex] = !sortDirection[colIndex];
+
+  rows.sort((a, b) => {
+    let valA = a.cells[colIndex].innerText.toLowerCase();
+    let valB = b.cells[colIndex].innerText.toLowerCase();
+    return asc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+  });
+
+  rows.forEach(row => tbody.appendChild(row));
+}
+
+/* ---------- Filtering ---------- */
+document.getElementById("searchInput").addEventListener("input", filterTable);
+document.getElementById("releaseFilter").addEventListener("change", filterTable);
+
+function filterTable() {
+  const searchText = document.getElementById("searchInput").value.toLowerCase();
+  const filterValue = document.getElementById("releaseFilter").value;
+  const rows = document.querySelectorAll("#releases-table tr");
+
+  rows.forEach(row => {
+    const repoText = row.cells[1].innerText.toLowerCase();
+    const released = row.cells[2].innerText.toLowerCase();
+
+    let visible = repoText.includes(searchText);
+
+    if (filterValue === "yes" && released !== "yes") visible = false;
+    if (filterValue === "no" && released !== "no") visible = false;
+
+    row.style.display = visible ? "" : "none";
+  });
+}
+
+/* ---------- Init ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const repos = [
+    "robotframework/robotframework",
+    "robotframework/SeleniumLibrary",
+    "python/cpython",
+    "microsoft/playwright",
+    "SeleniumHQ/selenium",
+    "openjdk/jdk"
+  ];
+
+  const days = 7;
+  repos.forEach((repo, index) => showLatestRelease(repo, days, index + 1));
+});
+</script>
+
