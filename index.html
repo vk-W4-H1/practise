@@ -85,11 +85,130 @@ header{
     border:none;
     background: transparent;
 }
+
+/* ===== HEADER LAYOUT ===== */
+
+.top-header {
+    background: var(--panel);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Banner Placeholder */
+.banner {
+    padding: 16px 20px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.banner-placeholder {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    color: var(--accent);
+}
+
+/* ===== MENU BAR ===== */
+
+.menu-bar {
+    background: #0f172a;
+    padding: 0 20px;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu-item {
+    position: relative;
+    padding: 14px 18px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.menu-item:hover {
+    background: #1e293b;
+}
+
+/* Submenu */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #1e293b;
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    min-width: 180px;
+    display: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.submenu li {
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.submenu li:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* Show submenu on hover */
+.has-submenu:hover .submenu {
+    display: block;
+}
+
 </style>
 </head>
 
 <body>
-<header>codetestdeploy</header>
+<header class="top-header">
+    <div class="banner">
+        <!-- Heading Banner Placeholder -->
+        <div class="banner-placeholder">
+             codetestdeploy
+        </div>
+    </div>
+
+    <!-- Menu Bar Placeholder -->
+    <nav class="menu-bar">
+        <ul class="menu">
+            <li class="menu-item" onclick="loadHiddenHome()">
+                Home
+            </li>
+
+            <li class="menu-item has-submenu">
+                Documents
+                <!--<ul class="submenu">
+                    <li onclick="loadPageDirectly('pages/html/advanced-parallel-calculator.html')">Test Automation Strategy</li>
+                    <li>Test Automation Plan</li>
+                    <li>Test Strategy</li>
+                    <li>Test Plan</li>
+                </ul>-->
+            </li>
+
+            <li class="menu-item has-submenu">
+                Tools
+                <!--<ul class="submenu">
+                    <li>Screenshot</li>
+                    <li>(EN/DE) Crypt</li>
+                </ul>-->
+            </li>
+
+            <!--<li class="menu-item">
+                Contact
+            </li>-->
+        </ul>
+    </nav>
+</header>
+
 
 <div class="container">
     <nav class="sidebar" id="sidebar"></nav>
@@ -146,6 +265,10 @@ function loadPage(el, page, crumbs) {
     el.classList.add('active');
 
     document.getElementById('breadcrumb').textContent = crumbs.join(' / ');
+    document.getElementById('contentFrame').src = page;
+}
+
+function loadPageDirectly( page) {
     document.getElementById('contentFrame').src = page;
 }
 

@@ -1,4 +1,3 @@
-
 <h2 id="pageTitle"></h2>
 
 <script>
@@ -12,9 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("pageTitle").textContent =
-    `Update on tool releases - ${formattedDate}`;
+    `Update on tool releases`;
 });
 </script>
+
 <input
   type="text"
   id="searchInput"
@@ -43,54 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 let sortDirection = {};
-
-function showLatestRelease(repo, days, index) {
-  const tableBody = document.getElementById("releases-table");
-  const row = document.createElement("tr");
-
-  row.innerHTML = `
-    <td>${index}</td>
-    <td>
-      <a href="https://github.com/${repo}" target="_blank">
-        ${repo}
-      </a>
-    </td>
-    <td>Loading…</td>
-    <td>Loading…</td>
-  `;
-
-  tableBody.appendChild(row);
-
-  fetch(`https://api.github.com/repos/${repo}/releases`)
-    .then(res => res.json())
-    .then(releases => {
-      if (!Array.isArray(releases) || releases.length === 0) {
-        row.cells[2].textContent = "No";
-        row.cells[3].textContent = "No releases";
-        return;
-      }
-
-      const latest = releases.find(r => !r.draft && r.published_at);
-      if (!latest) {
-        row.cells[2].textContent = "No";
-        row.cells[3].textContent = "No published releases";
-        return;
-      }
-
-      const releaseDate = new Date(latest.published_at);
-      const now = new Date();
-      const diffInDays = Math.floor(
-        (now - releaseDate) / (1000 * 60 * 60 * 24)
-      );
-
-      row.cells[2].textContent = diffInDays <= days ? "Yes" : "No";
-      row.cells[3].textContent = releaseDate.toISOString().split("T")[0];
-    })
-    .catch(() => {
-      row.cells[2].textContent = "Error";
-      row.cells[3].textContent = "Error";
-    });
-}
 
 /* ---------- Sorting ---------- */
 function sortTable(colIndex) {
@@ -129,19 +81,43 @@ function filterTable() {
   });
 }
 
-/* ---------- Init ---------- */
+/* ---------- Load JSON + Auto Calculate ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  const repos = [
-    "robotframework/robotframework",
-    "robotframework/SeleniumLibrary",
-    "python/cpython",
-    "microsoft/playwright",
-    "SeleniumHQ/selenium",
-    "openjdk/jdk"
-  ];
+  fetch("data/releases.json")
+    .then(res => res.json())
+    .then(data => {
+      const tableBody = document.getElementById("releases-table");
+      tableBody.innerHTML = "";
 
-  const days = 7;
-  repos.forEach((repo, index) => showLatestRelease(repo, days, index + 1));
+      const today = new Date();
+      const daysLimit = 7;
+
+      data.forEach((item, index) => {
+        const row = document.createElement("tr");
+
+        const releaseDate = new Date(item.lastReleaseDate);
+        const diffInDays = Math.floor(
+          (today - releaseDate) / (1000 * 60 * 60 * 24)
+        );
+
+        const releasedRecently = diffInDays <= daysLimit ? "Yes" : "No";
+
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>
+            <a href="https://github.com/${item.repo}" target="_blank">
+              ${item.repo}
+            </a>
+          </td>
+          <td>${releasedRecently}</td>
+          <td>${item.lastReleaseDate}</td>
+        `;
+
+        tableBody.appendChild(row);
+      });
+    })
+    .catch(err => {
+      console.error("Error loading JSON:", err);
+    });
 });
 </script>
-

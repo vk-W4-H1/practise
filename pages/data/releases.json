@@ -1,0 +1,14 @@
+[
+  {
+    "repo": "robotframework/robotframework",
+    "lastReleaseDate": "2026-02-15"
+  },
+  {
+    "repo": "robotframework/SeleniumLibrary",
+    "lastReleaseDate": "2026-01-20"
+  },
+  {
+    "repo": "python/cpython",
+    "lastReleaseDate": "2026-02-18"
+  }
+]
