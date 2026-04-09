@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Playwright Parallel Scaling Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        padding: 30px;
+    }
+    .container {
+        max-width: 850px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; }
+    label {
+        display: inline-block;
+        width: 220px;
+        margin-top: 8px;
+    }
+    input, select {
+        padding: 6px;
+        margin: 5px 0;
+        width: 160px;
+    }
+    button {
+        padding: 10px 15px;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+    table {
+        width: 100%;
+        margin-top: 25px;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background: #2c3e50;
+        color: white;
+    }
+    .bar {
+        height: 25px;
+        margin: 8px 0;
+        background: steelblue;
+        color: white;
+        text-align: right;
+        padding-right: 8px;
+        line-height: 25px;
+        border-radius: 5px;
+    }
+    .note {
+        margin-top: 20px;
+        font-size: 13px;
+        color: #555;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Playwright Parallel Execution Calculator</h2>
+
+<label>Logical CPUs:</label>
+<input type="number" id="cpus" min="1" placeholder="e.g. 4"><br>
+
+<label>RAM (GB):</label>
+<input type="number" id="ram" min="1" placeholder="e.g. 16"><br>
+
+<label>Environment:</label>
+<select id="environment">
+    <option value="local">Local</option>
+    <option value="ci">CI</option>
+</select><br>
+
+<label>Execution Mode:</label>
+<select id="mode">
+    <option value="headless">Headless</option>
+    <option value="headed">Headed</option>
+</select><br>
+
+<button onclick="calculate()">Calculate</button>
+
+<table id="resultTable" style="display:none;">
+<thead>
+<tr>
+<th>CPU Limit</th>
+<th>RAM Limit</th>
+<th>Recommended Workers</th>
+<th>Max Concurrent Browsers</th>
+</tr>
+</thead>
+<tbody id="resultBody"></tbody>
+</table>
+
+<div id="chart"></div>
+
+<div class="note">
+<b>Model Assumption (Normal Playwright Execution):</b><br>
+- 1 Worker = 1 Browser Instance<br>
+- Projects (Chromium/Firefox/WebKit) do NOT multiply workers<br>
+- Max concurrent browsers = workers<br><br>
+
+Formula Used:<br>
+Workers = MIN(floor(CPUs × Multiplier), floor(Adjusted RAM / RAM_per_worker))
+</div>
+
+</div>
+
+<script>
+function calculate() {
+
+    const cpus = parseInt(document.getElementById("cpus").value);
+    const ram = parseInt(document.getElementById("ram").value);
+    const env = document.getElementById("environment").value;
+    const mode = document.getElementById("mode").value;
+
+    if (!cpus || !ram) {
+        alert("Please fill all fields properly.");
+        return;
+    }
+
+    // Multiplier based on environment
+    let cpuMultiplier = env === "ci" ? 0.5 : 0.75;
+
+    // Headed mode uses more RAM
+    let ramAdjustment = mode === "headed" ? 1.3 : 1.0;
+
+    const ramPerWorker = 1.2; // Playwright average headless usage
+    const adjustedRam = ram / ramAdjustment;
+
+    const cpuLimit = Math.floor(cpus * cpuMultiplier);
+    const ramLimit = Math.floor(adjustedRam / ramPerWorker);
+
+    let recommended = Math.min(cpuLimit, ramLimit);
+    if (recommended < 1) recommended = 1;
+
+    const tbody = document.getElementById("resultBody");
+    tbody.innerHTML = `
+        <tr>
+            <td>${cpuLimit}</td>
+            <td>${ramLimit}</td>
+            <td><strong>${recommended}</strong></td>
+            <td><strong>${recommended}</strong></td>
+        </tr>
+    `;
+
+    document.getElementById("resultTable").style.display = "table";
+
+    // Simple visual bar
+    const chart = document.getElementById("chart");
+    chart.innerHTML = "";
+    const bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.width = (recommended * 40) + "px";
+    bar.innerText = `Workers = ${recommended}`;
+    chart.appendChild(bar);
+}
+</script>
+
+</body>
+</html>
