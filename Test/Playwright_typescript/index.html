@@ -1,0 +1,2577 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://codetestdeploy.in/Test/Playwright_typescript/">
+      
+      
+        <link rel="prev" href="../../Code/Python/">
+      
+      
+        <link rel="next" href="../RobotFramework/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Playwright Typescript - codetestdeploy</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#playwright" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="codetestdeploy" class="md-header__button md-logo" aria-label="codetestdeploy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            codetestdeploy
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Playwright Typescript
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Planning/Generic_AutomationTestStrategyDoc/" class="md-tabs__link">
+          
+  
+  
+  Planning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Code/Python/" class="md-tabs__link">
+          
+  
+  
+  Code
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Test
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Deploy/index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Deploy
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/EmployeeManagement/EmployeeLogin.html" class="md-tabs__link">
+          
+  
+  
+  Playground
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pages/DeviceInfo/" class="md-tabs__link">
+          
+  
+  
+  Utils
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="codetestdeploy" class="md-nav__button md-logo" aria-label="codetestdeploy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    codetestdeploy
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Planning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Planning/Generic_AutomationTestStrategyDoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Automation Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Code
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code/Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Test
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Playwright Typescript
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Playwright Typescript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features-of-playwright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features of Playwright
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primary-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-typescript-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Phase 1: TypeScript Basics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Phase 1: TypeScript Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Variables &amp; Data Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-and-folders-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Files and Folders CRUD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditions-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Conditions &amp; Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Functions &amp; Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-oriented-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Object-Oriented Programming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Exception Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Dependency Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-playwright-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Phase 2: Playwright Fundamentals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Phase 2: Playwright Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Setup &amp; Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Writing Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assertions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Assertions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Reporting &amp; Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Setup &amp; Teardown
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Setup &amp; Teardown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-wrapper-around-the-test-function-where-you-control-what-runs-before-and-after-the-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A wrapper around the test function where you control what runs before and after the test.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closer-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closer comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-test-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Phase 3: Test Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Phase 3: Test Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Tagging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameterization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Parameterization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Parameterization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-separate-parameterized-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate Separate Parameterized Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Execute tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Parallel Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-browser-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Phase 4: Browser Automation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Phase 4: Browser Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Locators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 User Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Web Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Data Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Browser Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RobotFramework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/Test/PlaywrightVsSelenium.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Playwright Vs Selenium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deploy/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Playground
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Playground
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/EmployeeManagement/EmployeeLogin.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utils
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/DeviceInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features-of-playwright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features of Playwright
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primary-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-typescript-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Phase 1: TypeScript Basics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Phase 1: TypeScript Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Variables &amp; Data Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-and-folders-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Files and Folders CRUD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditions-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Conditions &amp; Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Functions &amp; Classes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-oriented-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Object-Oriented Programming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Exception Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Dependency Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-playwright-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Phase 2: Playwright Fundamentals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Phase 2: Playwright Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Setup &amp; Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Writing Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assertions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Assertions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporting-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Reporting &amp; Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Setup &amp; Teardown
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Setup &amp; Teardown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key takeaways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-wrapper-around-the-test-function-where-you-control-what-runs-before-and-after-the-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A wrapper around the test function where you control what runs before and after the test.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closer-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closer comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-test-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Phase 3: Test Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Phase 3: Test Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Tagging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameterization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Parameterization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Parameterization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-separate-parameterized-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate Separate Parameterized Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Execute tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Parallel Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-browser-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Phase 4: Browser Automation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Phase 4: Browser Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Locators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 User Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Web Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Data Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Browser Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="playwright">📘 Playwright</h1>
+<h2 id="features-of-playwright">Features of Playwright</h2>
+<ul>
+<li>Free | Open Source</li>
+<li>Multi-Browser | Multi-Language | Multi-OS</li>
+<li>Easy Setup and Configuration</li>
+<li>Functional | API | Accessibility testing</li>
+<li>Built-in Reporters | Custom Reporters</li>
+<li>CI CD | Docker support</li>
+<li>Recording | Debugging | Explore selectors</li>
+<li>Parallel testing</li>
+<li>Auto-wait</li>
+<li>Built-in assertions | Less Flaky tests</li>
+<li>Test retry, logs, screenshots, videos</li>
+<li>Multi-tab and multi-window</li>
+<li>Frames | Shadow DOM</li>
+<li>Emulate mobile devices, geolocations</li>
+<li>Test parameterization</li>
+<li>Fast</li>
+</ul>
+<h2 id="primary-purpose">Primary Purpose</h2>
+<ul>
+<li>node - JavaScript runtime environment; executes JavaScript code.</li>
+<li>npm (Node Package Manager) - Package manager; installs, manages, and publishes project dependencies.</li>
+<li>npx (Node Package Execute) - Package runner; executes packages and their binaries directly without permanent installation.</li>
+</ul>
+<h2 id="phase-1-typescript-basics">✅ Phase 1: TypeScript Basics</h2>
+<p>Run typscript files with command 
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">npx</span><span class="w"> </span><span class="nx">ts</span><span class="o">-</span><span class="nx">node</span><span class="w"> </span><span class="o">-</span><span class="nx">P</span><span class="w"> </span><span class="nx">tsconfig</span><span class="p">.</span><span class="nx">node</span><span class="p">.</span><span class="nx">json</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="nx">TypescriptBasics</span><span class="o">/</span><span class="nx">FileAndFoldersCRUD</span><span class="o">/</span><span class="nx">index</span><span class="p">.</span><span class="nx">ts</span>
+</span></code></pre></div></p>
+<h3 id="variables-data-types">🔹 Variables &amp; Data Types</h3>
+<ul>
+<li>number</li>
+<li>string</li>
+<li>boolean</li>
+<li>null &amp; undefined</li>
+<li>any &amp; unknown</li>
+<li>Arrays</li>
+<li>Tuple</li>
+<li>Objects / Dictionary (<code>Record&lt;string, any&gt;</code>)</li>
+</ul>
+<h3 id="files-and-folders-crud">🔹 Files and Folders CRUD</h3>
+<p>Ref: TypescriptBasics/FileAndFoldersCRUD/index.ts</p>
+<h3 id="conditions-loops">🔹 Conditions &amp; Loops</h3>
+<ul>
+<li>if / else</li>
+<li>switch</li>
+<li>for loop</li>
+<li>while / do-while</li>
+<li>for...of</li>
+<li>for...in</li>
+</ul>
+<p>Ref: TypescriptBasics/ConditionsAndLoops.ts</p>
+<h3 id="functions-classes">🔹 Functions &amp; Classes</h3>
+<ul>
+<li>Function declaration</li>
+<li>Arrow functions</li>
+<li>Parameters &amp; return types</li>
+<li>Classes &amp; constructors</li>
+<li>Access modifiers (<code>public</code>, <code>private</code>, <code>protected</code>)</li>
+<li>Interfaces &amp; Types</li>
+</ul>
+<p>Ref: TypescriptBasics/FunctionsAndClasses.ts</p>
+<h3 id="object-oriented-programming">🔹 Object-Oriented Programming</h3>
+<ul>
+<li>Objects</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+<li>Encapsulation</li>
+</ul>
+<h3 id="exception-handling">🔹 Exception Handling</h3>
+<ul>
+<li>try / catch / finally</li>
+<li>Throwing errors</li>
+<li>Custom errors</li>
+</ul>
+<p>Ref: TypescriptBasics/ExceptionHandling.ts</p>
+<h3 id="dependency-management">🔹 Dependency Management</h3>
+<ul>
+<li>npm &amp; npx</li>
+<li>package.json</li>
+<li>devDependencies</li>
+<li>tsconfig.json</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>topic</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>npm</td>
+<td>Node Package Manager used to install, manage, and version project dependencies.</td>
+</tr>
+<tr>
+<td>npx</td>
+<td>Executes packages directly without globally installing them.</td>
+</tr>
+<tr>
+<td>package.json</td>
+<td>Project configuration file that defines dependencies, scripts, and metadata.</td>
+</tr>
+<tr>
+<td>devDependencies</td>
+<td>Packages needed only during development (e.g., testing, TypeScript, build tools).</td>
+</tr>
+<tr>
+<td>tsconfig.json</td>
+<td>TypeScript configuration file that controls how TypeScript compiles your code.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="phase-2-playwright-fundamentals">✅ Phase 2: Playwright Fundamentals</h2>
+<h3 id="setup-configuration">🔹 Setup &amp; Configuration</h3>
+<ul>
+<li>Install Playwright</li>
+<li>Playwright project structure</li>
+<li>playwright.config.ts
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="o">:</span><span class="w"> </span><span class="kt">PlaywrightTestConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">testMatch</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;tests/recorded.test.ts&quot;</span><span class="p">],</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nx">headless</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">screenshot</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;only-on-failure&quot;</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">video</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;retain-on-failure&quot;</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nx">retries</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nx">reporter</span><span class="o">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">&quot;dot&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nx">outputFile</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;jsonReports/jsonReport.json&quot;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="p">}],</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;html&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nx">open</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;never&quot;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">}]]</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</span></code></pre></div></li>
+<li>Browser configuration</li>
+</ul>
+<h3 id="writing-tests">🔹 Writing Tests</h3>
+<ul>
+<li>test()</li>
+<li>expect()<br />
+Ref: https://playwright.dev/docs/test-assertions</li>
+<li>Test structure</li>
+<li>Debugging tests</li>
+</ul>
+<p>when we run tests in debug mode, it runs in headed mode</p>
+<ul>
+<li>page.pause()</li>
+</ul>
+<h3 id="assertions">🔹 Assertions</h3>
+<ul>
+<li>Visibility assertions</li>
+<li>Text assertions</li>
+<li>URL assertions</li>
+<li>Attribute checks</li>
+<li>Soft vs Hard assertions</li>
+</ul>
+<h3 id="reporting-logging">🔹 Reporting &amp; Logging</h3>
+<ul>
+<li>HTML reports</li>
+<li>Screenshots on failure</li>
+<li>Video recording</li>
+<li>Trace viewer</li>
+<li>Console logging</li>
+</ul>
+<h3 id="setup-teardown">🔹 Setup &amp; Teardown</h3>
+<ul>
+<li>beforeAll</li>
+<li>beforeEach</li>
+<li>afterEach</li>
+<li>afterAll</li>
+</ul>
+<p>Ref: tests/Hooks/File-Level Hooks.spec.ts</p>
+<h4 id="key-takeaways">Key takeaways</h4>
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Throws</th>
+<th>What happens to tests in the file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beforeAll</td>
+<td>Throws</td>
+<td>All tests skipped / not executed; first test may briefly appear in report depending on reporter</td>
+</tr>
+<tr>
+<td>beforeEach</td>
+<td>Throws</td>
+<td>Only current test fails; other tests run normally</td>
+</tr>
+<tr>
+<td>afterEach</td>
+<td>Throws</td>
+<td>Current test may fail; other tests run normally</td>
+</tr>
+<tr>
+<td>afterAll</td>
+<td>Throws</td>
+<td>Last test marked failed; other tests already run normally</td>
+</tr>
+<tr>
+<td>---</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Test fixtures</li>
+</ul>
+<h4 id="a-wrapper-around-the-test-function-where-you-control-what-runs-before-and-after-the-test">A wrapper around the test function where you control what runs before and after the test.</h4>
+<p><img alt="alt text" src="image.png" /></p>
+<hr />
+<h4 id="closer-comparison">Closer comparison</h4>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">setup</span><span class="w"> </span><span class="nx">statements</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">   </span><span class="nx">runTest</span><span class="p">();</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">   </span><span class="nx">runYourTeardown</span><span class="p">();</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="phase-3-test-management">✅ Phase 3: Test Management</h2>
+<h3 id="tagging">🔹 Tagging</h3>
+<ul>
+<li>@smoke</li>
+<li>@regression</li>
+<li>@sanity</li>
+</ul>
+<p><div class="language-typescript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@playwright/test&#39;</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;login test @smoke @regression @sanity&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="c1">// test code</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">});</span>
+</span></code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">#Run only smoke tests:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>npx<span class="w"> </span>playwright<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--grep<span class="w"> </span>@smoke
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">#Run everything except smoke:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>npx<span class="w"> </span>playwright<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--grep-invert<span class="w"> </span>@smoke
+</span></code></pre></div></p>
+<h3 id="parameterization">🔹 Parameterization</h3>
+<ul>
+<li>test.describe()</li>
+<li>test.each()</li>
+<li>Data-driven testing</li>
+</ul>
+<h4 id="generate-separate-parameterized-tests">Generate Separate Parameterized Tests</h4>
+<p>✔ This creates 3 independent tests<br />
+✔ Each can run on a different worker
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">test</span><span class="p">,</span><span class="w"> </span><span class="nx">expect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@playwright/test&#39;</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;user1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pass1&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;user2&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pass2&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;admin123&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">];</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nx">users</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(({</span><span class="w"> </span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nx">test</span><span class="p">(</span><span class="sb">`login test for </span><span class="si">${</span><span class="nx">username</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="kr">goto</span><span class="p">(</span><span class="s1">&#39;https://example.com/login&#39;</span><span class="p">);</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;#username&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">username</span><span class="p">);</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;#password&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">);</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s1">&#39;#login&#39;</span><span class="p">);</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">expect</span><span class="p">(</span><span class="nx">page</span><span class="p">).</span><span class="nx">toHaveURL</span><span class="p">(</span><span class="sr">/dashboard/</span><span class="p">);</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">});</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="err">###</span><span class="w"> </span><span class="err">🔹</span><span class="w"> </span><span class="nx">Skip</span><span class="w"> </span><span class="nx">tests</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="o">-</span><span class="w"> </span><span class="nx">Skip</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">based</span><span class="w"> </span><span class="nx">on</span><span class="w"> </span><span class="nx">specific</span><span class="w"> </span><span class="nx">browser</span><span class="p">.</span><span class="w"> </span><span class="err">✅</span><span class="w"> </span><span class="nx">Below</span><span class="w"> </span><span class="nx">skip</span><span class="w"> </span><span class="nx">logic</span><span class="w"> </span><span class="nx">tested</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">works</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">expected</span><span class="w"> </span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="sb">```typescript</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="sb">test(&#39;Iterate over table and print 3 column value when first 2 columns matches with the given value&#39;, async({page}, testInfo)=&gt; {</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="sb">  //condition to run only on google chrome browser. </span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="sb">  test.skip(</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="sb">    testInfo.project.name !== &#39;Google Chrome&#39;,</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="sb">    &#39;Runs only in Google Chrome&#39;</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="sb">  );</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="sb">  } )</span>
+</span></code></pre></div>
+- Skip run on CI tool. ✅ Below skip logic tested on Github and works as expected
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;page title&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="c1">//skip test only on CI run  </span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nx">test</span><span class="p">.</span><span class="nx">skip</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CI</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Skipping in CI&#39;</span><span class="p">);</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">browser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">chromium</span><span class="p">.</span><span class="nx">connectOverCDP</span><span class="p">(</span><span class="s1">&#39;http://localhost:9222&#39;</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h3 id="execute-tests">🔹 Execute tests</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">npx playwright tests</td>
+<td style="text-align: left;">To run alls tests within playwright folder</td>
+</tr>
+<tr>
+<td style="text-align: left;">npx playwright test tests/tests.spec.ts  -g "testcase name/partial name"</td>
+<td style="text-align: left;">To run specific testcase</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<ul>
+<li>how to run tests against different version of same browser</li>
+</ul>
+<h3 id="parallel-execution">🔹 Parallel Execution</h3>
+<ul>
+<li>Workers</li>
+<li>Parallel execution</li>
+<li>Serial execution</li>
+</ul>
+<p>By default, Playwright runs test files in parallel. </p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">//If tests are inside the same file and you want them parallel:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nx">test</span><span class="p">.</span><span class="nx">describe</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span><span class="w"> </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parallel&#39;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;user1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;user2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="p">];</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">users</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="nx">test</span><span class="p">(</span><span class="sb">`login test for </span><span class="si">${</span><span class="nx">user</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">// test logic</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nx">test</span><span class="p">.</span><span class="nx">describe</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span><span class="w"> </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;parallel&#39;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">testData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./users.json&#39;</span><span class="p">);</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">testData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nx">test</span><span class="p">(</span><span class="sb">`@smoke login for </span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">username</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="c1">// test logic</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>npx<span class="w"> </span>playwright<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--workers<span class="o">=</span><span class="m">4</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Workers hardware requirement 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>1 Worker needs 1 logical CPU and 2 GB RAM
+</span></code></pre></div>
+<h3 id="cicd-integration">🔹 CI/CD Integration</h3>
+<ul>
+<li>GitHub Actions</li>
+<li>Jenkins</li>
+<li>GitLab CI</li>
+<li>Headless execution</li>
+</ul>
+<hr />
+<h2 id="phase-4-browser-automation">✅ Phase 4: Browser Automation</h2>
+<h3 id="locators">🔹 Locators</h3>
+<ul>
+<li>getByRole</li>
+<li>getByText</li>
+<li>getByTestId</li>
+<li>CSS selectors</li>
+<li>XPath</li>
+</ul>
+<h3 id="user-actions">🔹 User Actions</h3>
+<ul>
+<li>Click</li>
+<li>Type</li>
+<li>Keyboard actions</li>
+<li>Mouse actions</li>
+<li>Drag &amp; Drop</li>
+<li>File upload</li>
+</ul>
+<h3 id="web-handling">🔹 Web Handling</h3>
+<ul>
+<li>Dropdowns</li>
+<li>Checkboxes</li>
+<li>Radio buttons</li>
+<li>Auto-suggestions</li>
+</ul>
+<h3 id="data-retrieval">🔹 Data Retrieval</h3>
+<ul>
+<li>Get text</li>
+<li>Get attributes</li>
+<li>Tables</li>
+</ul>
+<h3 id="browser-events">🔹 Browser Events</h3>
+<ul>
+<li>Alerts</li>
+<li>Frames</li>
+<li>Windows</li>
+<li>Popups</li>
+</ul>
+<h3 id="cheat-sheet">🔹 Cheat sheet</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Best Locator</th>
+<th>Common Actions</th>
+<th>Retrieve Value</th>
+<th>Assertions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Button</td>
+<td><code>getByRole('button', { name: 'Submit' })</code></td>
+<td><code>click()</code> <code>dblclick()</code> <code>hover()</code></td>
+<td><code>innerText()</code></td>
+<td><code>toBeVisible()</code> <code>toBeEnabled()</code> <code>toHaveText()</code></td>
+</tr>
+<tr>
+<td>Textbox / Input</td>
+<td><code>getByRole('textbox', { name: 'First Name' })</code></td>
+<td><code>fill()</code> <code>type()</code> <code>clear()</code></td>
+<td><code>inputValue()</code></td>
+<td><code>toHaveValue()</code> <code>toBeEditable()</code></td>
+</tr>
+<tr>
+<td>Textarea</td>
+<td><code>locator('textarea')</code></td>
+<td><code>fill()</code></td>
+<td><code>inputValue()</code></td>
+<td><code>toHaveValue()</code></td>
+</tr>
+<tr>
+<td>Checkbox</td>
+<td><code>getByRole('checkbox', { name: 'Accept' })</code></td>
+<td><code>check()</code> <code>uncheck()</code></td>
+<td><code>isChecked()</code></td>
+<td><code>toBeChecked()</code></td>
+</tr>
+<tr>
+<td>Radio Button</td>
+<td><code>getByRole('radio', { name: 'Male' })</code></td>
+<td><code>check()</code></td>
+<td><code>isChecked()</code></td>
+<td><code>toBeChecked()</code></td>
+</tr>
+<tr>
+<td>Dropdown (select)</td>
+<td><code>locator('select#country')</code></td>
+<td><code>selectOption()</code></td>
+<td><code>inputValue()</code> / <code>locator('option:checked').innerText()</code></td>
+<td><code>toHaveValue()</code></td>
+</tr>
+<tr>
+<td>Link</td>
+<td><code>getByRole('link', { name: 'Home' })</code></td>
+<td><code>click()</code></td>
+<td><code>getAttribute('href')</code></td>
+<td><code>toHaveAttribute()</code></td>
+</tr>
+<tr>
+<td>Table Rows</td>
+<td><code>locator('table tbody tr')</code></td>
+<td><code>nth(i)</code> <code>count()</code></td>
+<td><code>allTextContents()</code></td>
+<td><code>toHaveCount()</code></td>
+</tr>
+<tr>
+<td>Table Cell</td>
+<td><code>row.locator('td').nth(i)</code></td>
+<td>—</td>
+<td><code>innerText()</code></td>
+<td><code>toContainText()</code></td>
+</tr>
+<tr>
+<td>Div / Span</td>
+<td><code>locator('#id')</code></td>
+<td><code>click()</code> <code>hover()</code></td>
+<td><code>innerText()</code></td>
+<td><code>toHaveText()</code> <code>toContainText()</code></td>
+</tr>
+<tr>
+<td>Image</td>
+<td><code>locator('img')</code></td>
+<td>—</td>
+<td><code>getAttribute('src')</code></td>
+<td><code>toHaveAttribute()</code></td>
+</tr>
+<tr>
+<td>File Upload</td>
+<td><code>locator('input[type=file]')</code></td>
+<td><code>setInputFiles()</code></td>
+<td><code>inputValue()</code></td>
+<td><code>toHaveValue()</code></td>
+</tr>
+<tr>
+<td>Dialog (Alert)</td>
+<td><code>page.on('dialog', handler)</code></td>
+<td><code>accept()</code> <code>dismiss()</code></td>
+<td><code>dialog.message()</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Page</td>
+<td><code>page</code></td>
+<td><code>goto()</code> <code>reload()</code></td>
+<td><code>url()</code> <code>title()</code></td>
+<td><code>toHaveURL()</code> <code>toHaveTitle()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="browser-window-handling">🪟 Browser Window Handling</h1>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New browser context</td>
+<td><code>const context = await browser.newContext();</code></td>
+</tr>
+<tr>
+<td>New window manually</td>
+<td><code>const newPage = await context.newPage();</code></td>
+</tr>
+<tr>
+<td>Get window title</td>
+<td><code>await page.title();</code></td>
+</tr>
+<tr>
+<td>Get window URL</td>
+<td><code>page.url();</code></td>
+</tr>
+<tr>
+<td>Close window</td>
+<td><code>await page.close();</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="frames-iframes">🖼 Frames / iFrames</h1>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get frame by name</td>
+<td><code>const frame = page.frame({ name: 'frameName' });</code></td>
+</tr>
+<tr>
+<td>Get frame by URL</td>
+<td><code>const frame = page.frame({ url: /partial-url/ });</code></td>
+</tr>
+<tr>
+<td>Locate inside iframe (recommended)</td>
+<td><code>const frameLocator = page.frameLocator('#frameId');</code></td>
+</tr>
+<tr>
+<td>Click inside iframe</td>
+<td><code>await frameLocator.locator('button').click();</code></td>
+</tr>
+<tr>
+<td>Fill inside iframe</td>
+<td><code>await frameLocator.locator('#input').fill('text');</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="phase-5-framework-design">✅ Phase 5: Framework Design</h2>
+<h3 id="page-object-model">🔹 Page Object Model</h3>
+<ul>
+<li>Page classes</li>
+<li>Reusable methods</li>
+</ul>
+<h3 id="test-data-management">🔹 Test Data Management</h3>
+<ul>
+<li>JSON</li>
+<li>Environment variables</li>
+<li>.env file</li>
+</ul>
+<h3 id="screenshots-videos">🔹 Screenshots &amp; Videos</h3>
+<ul>
+<li>On failure</li>
+<li>Manual screenshots</li>
+</ul>
+<hr />
+<h2 id="phase-6-advanced-topics">✅ Phase 6: Advanced Topics</h2>
+<h3 id="authentication">🔹 Authentication</h3>
+<ul>
+<li>Storage state</li>
+<li>Token login</li>
+</ul>
+<h3 id="network-handling">🔹 Network Handling</h3>
+<ul>
+<li>API mocking</li>
+<li>Request interception</li>
+</ul>
+<h3 id="performance">🔹 Performance</h3>
+<ul>
+<li>Page load metrics</li>
+</ul>
+<h3 id="accessibility">🔹 Accessibility</h3>
+<ul>
+<li>WCAG checks</li>
+</ul>
+<h3 id="cross-browser">🔹 Cross Browser</h3>
+<ul>
+<li>Chromium</li>
+<li>Firefox</li>
+<li>WebKit</li>
+</ul>
+<hr />
+<h2 id="phase-7-best-practices">✅ Phase 7: Best Practices</h2>
+<ul>
+<li>Use data-testid</li>
+<li>Avoid hard waits</li>
+<li>Clean code</li>
+<li>Reusable components</li>
+<li>Maintainable framework</li>
+</ul>
+<h3 id="practise-sites">Practise sites</h3>
+<p>https://ecommerce-playground.lambdatest.io/index.php?route=account/login</p>
+<h2 id="certification">Certification</h2>
+<h3 id="2-how-to-use-functions-and-selectors">2) How to use functions and selectors</h3>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">browser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">chromium</span><span class="p">.</span><span class="nx">launch</span><span class="p">({</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nx">headless</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">});</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">browser</span><span class="p">.</span><span class="nx">newContext</span><span class="p">();</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">newPage</span><span class="p">();</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1">// Navigate to homepage</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="kr">goto</span><span class="p">(</span><span class="s2">&quot;https://ecommerce-playground.lambdatest.io/&quot;</span><span class="p">);</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1">// Hover over &#39;My account&#39; dropdown</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">hover</span><span class="p">(</span><span class="s2">&quot;//a[@data-toggle=&#39;dropdown&#39;]/span[contains(.,&#39;My account&#39;)]&quot;</span><span class="p">);</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1">// Click Login button</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="c1">// await page.click(&quot;text=Login&quot;)</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s2">&quot;input[value=&#39;Login&#39;]&quot;</span><span class="p">);</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="c1">// Fill login form</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s2">&quot;input[name=&#39;email&#39;]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;koushik350@gmail.com&quot;</span><span class="p">);</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s2">&quot;input[name=&#39;password&#39;]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Pass123$&quot;</span><span class="p">);</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s2">&quot;input[value=&#39;Login&#39;]&quot;</span><span class="p">);</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="c1">// Wait for 5 seconds</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">waitForTimeout</span><span class="p">(</span><span class="mf">5000</span><span class="p">);</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="c1">// Create a new browser context</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="kd">const</span><span class="w"> </span><span class="nx">newContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">browser</span><span class="p">.</span><span class="nx">newContext</span><span class="p">();</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="c1">// Open a new page in the new context</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="kd">const</span><span class="w"> </span><span class="nx">newPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">newContext</span><span class="p">.</span><span class="nx">newPage</span><span class="p">();</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="k">await</span><span class="w"> </span><span class="nx">newPage</span><span class="p">.</span><span class="kr">goto</span><span class="p">(</span><span class="s2">&quot;https://ecommerce-playground.lambdatest.io/index.php?route=account/account&quot;</span><span class="p">);</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="c1">// Wait for 5 seconds</span>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="k">await</span><span class="w"> </span><span class="nx">newPage</span><span class="p">.</span><span class="nx">waitForTimeout</span><span class="p">(</span><span class="mf">5000</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="3-playwright-testing-features">3) Playwright Testing Features</h3>
+<ul>
+<li>playwright.config.ts
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="o">:</span><span class="w"> </span><span class="kt">PlaywrightTestConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nx">testMatch</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;tests/recorded.test.ts&quot;</span><span class="p">],</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nx">use</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nx">headless</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">,</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nx">screenshot</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;only-on-failure&quot;</span><span class="p">,</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nx">video</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;retain-on-failure&quot;</span><span class="p">,</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="kt">30000</span><span class="p">,</span><span class="w"> </span><span class="c1">// Timeout for each test in milliseconds (30s)</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">  </span><span class="nx">retries</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">,</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span><span class="nx">reporter</span><span class="o">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">&quot;dot&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="nx">outputFile</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;jsonReports/jsonReport.json&quot;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span><span class="p">}],</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;html&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="nx">open</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;never&quot;</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">  </span><span class="p">}]]</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="p">}</span>
+</span></code></pre></div></li>
+<li>Auto wait<br />
+https://playwright.dev/docs/actionability</li>
+</ul>
+<h3 id="4-how-to-handle-alerts-and-dropdowns">4) How to Handle Alerts and Dropdowns</h3>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nx">page</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;dialog&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">alert</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">alert</span><span class="p">.</span><span class="nx">defaultValue</span><span class="p">();</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">alert</span><span class="p">.</span><span class="nx">accept</span><span class="p">(</span><span class="s2">&quot;koushik&quot;</span><span class="p">);</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">});</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">locator</span><span class="p">(</span><span class="s2">&quot;button:has-text(&#39;Click Me&#39;)&quot;</span><span class="p">).</span><span class="nx">nth</span><span class="p">(</span><span class="mf">2</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1">// expect(page.locator(&quot;id=confirm-demo&quot;)).toContainText(&quot;Cancel!&quot;);</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="nx">expect</span><span class="p">(</span><span class="nx">page</span><span class="p">.</span><span class="nx">locator</span><span class="p">(</span><span class="s2">&quot;id=prompt-demo&quot;</span><span class="p">)).</span><span class="nx">toContainText</span><span class="p">(</span><span class="s2">&quot;&#39;koushik&#39;&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">selectOption</span><span class="p">(</span><span class="s2">&quot;#select-demo&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="c1">// label: &quot;Tuesday&quot;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="c1">// value: &quot;Friday&quot;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nx">index</span><span class="o">:</span><span class="w"> </span><span class="kt">5</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">})</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="k">await</span><span class="w"> </span><span class="nx">selectCountry</span><span class="p">();</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">selectCountry</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="s2">&quot;#countryspan&quot;</span><span class="p">);</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="nx">locator</span><span class="p">(</span><span class="s2">&quot;ul#select2-country-results&quot;</span><span class="p">)</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span><span class="p">.</span><span class="nx">locator</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">      </span><span class="nx">hasText</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;India&quot;</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">    </span><span class="p">}).</span><span class="nx">click</span><span class="p">();</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Ref: https://github.com/ortoniKC/playwright-ts-lambdatest</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
