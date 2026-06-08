@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://codetestdeploy.in/Test/PlaywrightVsSelenium/">
+        <link rel="canonical" href="https://codetestdeploy.in/Playground/apps/">
       
       
+        <link rel="prev" href="../../Deploy/docker_commands/">
+      
+      
+        <link rel="next" href="../../pages/DeviceInfo/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>PlaywrightVsSelenium - codetestdeploy</title>
+        <title>Apps - codetestdeploy</title>
       
     
     
@@ -71,11 +75,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#lazy-locator-resolution" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -106,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PlaywrightVsSelenium
+              Apps
             
           </span>
         </div>
@@ -266,7 +265,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../Playwright_typescript/" class="md-tabs__link">
+        <a href="../../Test/Playwright_typescript/" class="md-tabs__link">
           
   
   
@@ -302,11 +301,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Playground/apps/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -645,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Playwright_typescript/" class="md-nav__link">
+      <a href="../../Test/Playwright_typescript/" class="md-nav__link">
         
   
   
@@ -673,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RobotFramework/" class="md-nav__link">
+      <a href="../../Test/RobotFramework/" class="md-nav__link">
         
   
   
@@ -818,24 +819,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -853,7 +859,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -868,10 +874,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Playground/apps/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -887,6 +900,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1087,25 +1101,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#lazy-locator-resolution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lazy locator resolution
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1121,53 +1116,10 @@
 
 
 
-  <h1>PlaywrightVsSelenium</h1>
+  <h1>Apps</h1>
 
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Selenium</th>
-<th>Playwright</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Lazy locator resolution</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Retries</td>
-<td>easy</td>
-<td>hard</td>
-</tr>
-<tr>
-<td>Frames</td>
-<td>Switch to frame and use webdriver obj</td>
-<td>No Switch needed, use frame obj</td>
-</tr>
-<tr>
-<td>---</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="lazy-locator-resolution">Lazy locator resolution</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">#selenium</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">search_box</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;search2&quot;</span><span class="p">))</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">#refresh the browser manually</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">search_box</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">&quot;test12&quot;</span><span class="p">)</span> <span class="c1"># we get exception StaleElementReferenceException, because search_box points to an element that no longer exists in the new DOM.</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">#playwright</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">editbox</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">locator</span><span class="p">(</span><span class="s2">&quot;#search2&quot;</span><span class="p">)</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1">#refresh the browser manually</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">editbox</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span> <span class="c1">#it works. locator() does not store a fixed DOM element. It re-queries the DOM every time you perform an action</span>
-</span></code></pre></div>
+<p><a href="https://orangehrm.codetestdeploy.in/">OrangeHRM</a><br />
+<a href="../../pages/EmployeeManagement/EmployeeLogin.html">EmployeeManagement</a></p>
 
 
 

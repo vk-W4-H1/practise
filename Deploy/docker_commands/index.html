@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://codetestdeploy.in/Domain/Telecom/">
+        <link rel="canonical" href="https://codetestdeploy.in/Deploy/docker_commands/">
       
       
-        <link rel="prev" href="../../pages/DeviceInfo/">
+        <link rel="prev" href="../../Test/RobotFramework/">
       
+      
+        <link rel="next" href="../../Playground/apps/">
       
       
         
@@ -23,7 +25,7 @@
     
     
       
-        <title>Telecom - codetestdeploy</title>
+        <title>Docker - codetestdeploy</title>
       
     
     
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#telecom" class="md-skip">
+        <a href="#docker-compose" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Telecom
+              Docker
             
           </span>
         </div>
@@ -284,18 +286,21 @@
   
   
   
-  
-    <li class="md-tabs__item">
-      <a href="../../Deploy/index.md" class="md-tabs__link">
-        
+    
   
   
     
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
   
   Deploy
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -307,7 +312,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../pages/EmployeeManagement/EmployeeLogin.html" class="md-tabs__link">
+        <a href="../../Playground/apps/" class="md-tabs__link">
           
   
   
@@ -343,13 +348,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../Domain/Telecom.md" class="md-tabs__link">
           
   
   
@@ -736,11 +739,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Deploy/index.md" class="md-nav__link">
+  
+    
+    
+    
+    
+      
         
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
@@ -754,7 +776,227 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deploy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        docker compose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-your-user-to-the-docker-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add your user to the docker group
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add your user to the docker group">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-run-command-sudo-usermod-ag-docker-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Run command &gt; sudo usermod -aG docker $USER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-logout-from-the-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Logout from the machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-relogin-and-run-docker-command-without-sudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Relogin and Run docker command without sudo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-docker-running-in-remote-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with docker running in remote machine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with docker running in remote machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-host-in-sshconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Add host in ~/.ssh/config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-docker-contexts-using-those-host-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create Docker contexts using those host aliases.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-test-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Test the connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-switch-to-the-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Switch to the context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-to-show-current-active-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: To show current active context
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -816,14 +1058,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pages/EmployeeManagement/EmployeeLogin.html" class="md-nav__link">
+      <a href="../../Playground/apps/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    UI Automation
+    Apps
   
 
     
@@ -933,29 +1175,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -973,7 +1210,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -988,37 +1225,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Telecom
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Domain/Telecom.md" class="md-nav__link">
         
   
   
@@ -1034,37 +1244,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#bssoss-to-core-network-integration-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BSS/OSS to Core Network Integration Diagram
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1094,8 +1273,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1104,13 +1281,135 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#bssoss-to-core-network-integration-diagram" class="md-nav__link">
+  <a href="#docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BSS/OSS to Core Network Integration Diagram
+        docker compose
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-your-user-to-the-docker-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add your user to the docker group
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add your user to the docker group">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-run-command-sudo-usermod-ag-docker-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Run command &gt; sudo usermod -aG docker $USER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-logout-from-the-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Logout from the machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-relogin-and-run-docker-command-without-sudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Relogin and Run docker command without sudo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-docker-running-in-remote-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with docker running in remote machine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with docker running in remote machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-host-in-sshconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Add host in ~/.ssh/config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-docker-contexts-using-those-host-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create Docker contexts using those host aliases.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-test-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Test the connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-switch-to-the-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Switch to the context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-to-show-current-active-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: To show current active context
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1131,23 +1430,38 @@
 
 
 
-<h1 id="telecom">Telecom</h1>
-<h2 id="bssoss-to-core-network-integration-diagram">BSS/OSS to Core Network Integration Diagram</h2>
-<pre class="mermaid"><code>sequenceDiagram
-    participant U as User
-    participant BSS as BSS (Billing/CRM)
-    participant OSS as OSS (Provisioning)
-    participant HLR as HLR (Database)
-    participant NET as Network (Towers)
+  <h1>Docker</h1>
 
-    U-&gt;&gt;BSS: Buys SIM &amp; Plan
-    BSS-&gt;&gt;OSS: Create Subscriber Account
-    OSS-&gt;&gt;HLR: Provision IMSI &amp; MSISDN Using MML(Man Machine Language)
-    U-&gt;&gt;NET: Powers on Phone
-    NET-&gt;&gt;HLR: Is this SIM valid?
-    HLR--&gt;&gt;NET: Yes, allow connection
-    NET--&gt;&gt;U: Connected to Network
-</code></pre>
+<h3 id="docker-compose">docker compose</h3>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>compose<span class="w">  </span>--env-file<span class="w"> </span>.env.dev<span class="w"> </span>config
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker<span class="w"> </span>compose<span class="w">  </span>--env-file<span class="w"> </span>.env.dev<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+<h3 id="add-your-user-to-the-docker-group">Add your user to the docker group</h3>
+<h4 id="step-1-run-command-sudo-usermod-ag-docker-user">Step 1: Run command &gt; sudo usermod -aG docker $USER</h4>
+<h4 id="step-2-logout-from-the-machine">Step 2: Logout from the machine</h4>
+<h4 id="step-3-relogin-and-run-docker-command-without-sudo">Step 3: Relogin and Run docker command without sudo</h4>
+<h3 id="working-with-docker-running-in-remote-machine">Working with docker running in remote machine</h3>
+<p>Pre-Condition: <a href="#add-your-user-to-the-docker-group">User should be added to docker group</a></p>
+<h4 id="step-1-add-host-in-sshconfig">Step 1: Add host in ~/.ssh/config</h4>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Host<span class="w"> </span>&lt;SSH_HOST_ALIAS&gt;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>HostName<span class="w"> </span>&lt;HOST_IP_OR_HOSTNAME&gt;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>User<span class="w"> </span>&lt;LOGIN_USERNAME&gt;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>IdentityFile<span class="w"> </span>&lt;PATH_TO_PRIVATE_KEY&gt;
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Restrict authentication to the specified private key</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>IdentitiesOnly<span class="w"> </span>yes
+</span></code></pre></div>
+<h4 id="step-2-create-docker-contexts-using-those-host-aliases">Step 2: Create Docker contexts using those host aliases.</h4>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>context<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>dockercontextName<span class="o">]</span><span class="w"> </span>--docker<span class="w"> </span><span class="s2">&quot;host=ssh://HostAlias&quot;</span>
+</span></code></pre></div>
+<h4 id="step-3-test-the-connection">Step 3: Test the connection</h4>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>--context<span class="w"> </span><span class="o">[</span>dockercontextName<span class="o">]</span><span class="w"> </span>ps
+</span></code></pre></div>
+<h4 id="step-4-switch-to-the-context">Step 4: Switch to the context</h4>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>context<span class="w"> </span>use<span class="w"> </span><span class="o">[</span>dockercontextName<span class="o">]</span>
+</span></code></pre></div>
+<h4 id="step-5-to-show-current-active-context">Step 5: To show current active context</h4>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>context<span class="w"> </span>show
+</span></code></pre></div>
 
 
 
