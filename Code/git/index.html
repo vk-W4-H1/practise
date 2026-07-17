@@ -1724,7 +1724,7 @@
 <tr>
 <td></td>
 <td><code>git reset --hard HEAD~1</code></td>
-<td>Remove latest commit and discard all changes</td>
+<td>Remove latest commit and discard all changes. Refer section [To update the remote repository to match your local hard reset] if needed</td>
 <td><code>git reset --hard HEAD~1</code></td>
 </tr>
 <tr>
@@ -1744,6 +1744,18 @@
 <td><code>git commit --allow-empty -m "Reset history"</code></td>
 <td>Create a new empty commit</td>
 <td><code>git commit --allow-empty -m "Reset history"</code></td>
+</tr>
+<tr>
+<td><strong>To update the remote repository to match your local hard reset</strong></td>
+<td><code>git push origin &lt;branch-name&gt; --force-with-lease</code></td>
+<td>Push with Force-With-Lease. --force-with-lease. This stops the push if someone else has pushed new commits to the remote branch in the meantime, preventing you from accidentally destroying their work.</td>
+<td><code>git push origin &lt;branch-name&gt; --force-with-lease</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git push origin &lt;branch-name&gt; -f</code></td>
+<td>Push with Standard Force</td>
+<td><code>git push origin &lt;branch-name&gt; -f</code></td>
 </tr>
 <tr>
 <td><strong>History</strong></td>
@@ -1885,6 +1897,18 @@
 </tr>
 <tr>
 <td></td>
+<td><code>git branch -v</code></td>
+<td>Shows local branches with the latest commit (SHA + commit message).</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git branch -vv</code></td>
+<td>Shows everything from -v plus the upstream tracking branch and ahead/behind status.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
 <td><code>git branch -m &lt;old&gt; &lt;new&gt;</code></td>
 <td>Rename a branch</td>
 <td><code>git branch -m dev develop</code></td>
@@ -1975,6 +1999,12 @@
 </tr>
 <tr>
 <td><strong>Push</strong></td>
+<td><code>git push</code></td>
+<td>push the current selected branch</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
 <td><code>git push origin &lt;branch&gt;</code></td>
 <td>Push branch</td>
 <td><code>git push origin main</code></td>
