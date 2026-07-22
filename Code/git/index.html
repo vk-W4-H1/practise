@@ -1812,6 +1812,18 @@
 <td><code>git show :README.md</code></td>
 </tr>
 <tr>
+<td></td>
+<td><code>git show &lt;commit-hash&gt;:&lt;path/to/file.ext&gt;</code></td>
+<td>To see a file's content in a specific commit without switching branches</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git show branch-name:&lt;path to file&gt;</code></td>
+<td>View a file from a different branch</td>
+<td></td>
+</tr>
+<tr>
 <td><strong>Clean Working Tree</strong></td>
 <td><code>git clean -n</code></td>
 <td>Preview files that will be removed</td>
@@ -1945,15 +1957,129 @@
 </tr>
 <tr>
 <td><strong>Stash</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Saving Changes</strong></td>
 <td><code>git stash</code></td>
-<td>Save staged and unstaged changes temporarily</td>
-<td><code>git stash</code></td>
+<td>Stashes modified and staged tracked files.</td>
+<td></td>
 </tr>
 <tr>
 <td></td>
+<td><code>git stash push -m "message"</code></td>
+<td>Recommended. Stashes changes with a description.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash -u</code></td>
+<td>Stashes tracked and untracked files.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash -a</code></td>
+<td>Stashes all files, including ignored ones.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash -p</code></td>
+<td>Interactively choose code hunks to stash.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Viewing Stashes</strong></td>
+<td><code>git stash list</code></td>
+<td>Lists all saved stashes with indexes.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash show</code></td>
+<td>Summarizes changes in the latest stash.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash show stash@{N}</code></td>
+<td>Summarizes changes for specific stash index <code>N</code>.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git show stash@{N}:&lt;filepath&gt;</code></td>
+<td>Show contents of specific file present in specific stash</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash show -p</code></td>
+<td>Shows full diff of latest stash.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Applying Changes</strong></td>
 <td><code>git stash pop</code></td>
-<td>Restore stashed changes</td>
-<td><code>git stash pop</code></td>
+<td>Applies latest stash and deletes it.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash pop stash@{N}</code></td>
+<td>Applies specific stash <code>N</code> and deletes it.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash apply</code></td>
+<td>Applies latest stash but keeps it.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash apply stash@{N}</code></td>
+<td>Applies specific stash <code>N</code> but keeps it.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash apply --index</code></td>
+<td>Reinstates original staged/unstaged file statuses.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Deleting Stashes</strong></td>
+<td><code>git stash drop</code></td>
+<td>Deletes the most recent stash.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash drop stash@{N}</code></td>
+<td>Deletes specific stash index <code>N</code>.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git stash clear</code></td>
+<td>Deletes all stashes. Cannot be undone.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Advanced Workflows</strong></td>
+<td><code>git stash branch &lt;name&gt;</code></td>
+<td>Creates branch and pops latest stash.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>git checkout stash@{N} -- &lt;file&gt;</code></td>
+<td>Restores a single file from a stash.</td>
+<td></td>
 </tr>
 <tr>
 <td><strong>Remote Repository</strong></td>
